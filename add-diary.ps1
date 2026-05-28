@@ -3,16 +3,20 @@ param(
     [string]$content = ""
 )
 
-$diaryPath = "股票学习\随记\股票日记.md"
-
-if (-not (Test-Path $diaryPath)) {
-    Write-Host "❌ 找不到日记文件: $diaryPath" -ForegroundColor Red
+$diaryPath = "随记\股票日记.md"
+$vaultRoot = Split-Path -Parent $PSScriptRoot
+if (Test-Path (Join-Path $vaultRoot $diaryPath)) {
+    $diaryPath = Join-Path $vaultRoot $diaryPath
+} elseif (Test-Path $diaryPath) {
+    # 已存在
+} else {
+    Write-Host "❌ 找不到日记文件" -ForegroundColor Red
     exit 1
 }
 
 # 获取日期
 if ([string]::IsNullOrEmpty($date)) {
-    $inputDate = Read-Host "📅 输入日期 (格式: YYYY-MM-DD，回车默认今天)"
+    $inputDate = Read-Host "📅 输入日期 (YYYY-MM-DD，回车默认今天)"
     if ([string]::IsNullOrEmpty($inputDate)) {
         $date = Get-Date -Format "yyyy-MM-dd"
     } else {
@@ -22,7 +26,7 @@ if ([string]::IsNullOrEmpty($date)) {
 
 # 获取内容
 if ([string]::IsNullOrEmpty($content)) {
-    Write-Host "📝 输入今日日记内容 (输入完后按 Enter，空行则回车结束):" -ForegroundColor Cyan
+    Write-Host "📝 输入日记内容 (输入完后空行回车结束):" -ForegroundColor Cyan
     $lines = @()
     while ($true) {
         $line = Read-Host
@@ -36,16 +40,25 @@ if ([string]::IsNullOrEmpty($content)) {
     $content = $lines -join "`n"
 }
 
-# 构建日记条目
-$entry = @"
+# 构建新日记条目
+$newEntry = "`n### $date`n`n$content`n"
 
-### $date
+# 读取当前内容
+$currentContent = Get-Content $diaryPath -Raw
 
-$content
-"@
+# 在第一个 "### 2026/" 前面插入（保持最新在最上）
+$insertMarker = "`n### 2026/"
+$insertPos = $currentContent.IndexOf($insertMarker)
 
-# 追加到文件末尾
-Add-Content -Path $diaryPath -Value $entry
+if ($insertPos -ge 0) {
+    $newContent = $currentContent.Substring(0, $insertPos) + $newEntry + $currentContent.Substring($insertPos)
+} else {
+    # 容错：追加到末尾
+    $newContent = $currentContent + $newEntry
+}
 
-Write-Host "`n✅ 日记已添加到 $date" -ForegroundColor Green
+# 写回文件
+Set-Content $diaryPath -Value $newContent -Encoding UTF8
+
+Write-Host "`n✅ 日记已追加 ($date)" -ForegroundColor Green
 Write-Host "📄 $diaryPath" -ForegroundColor Gray
