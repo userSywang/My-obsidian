@@ -1,14 +1,17 @@
 /* ===== 股票日记专属配色 ===== */
 /* 在日记 frontmatter 中添加 cssclass: stock-diary 即可生效 */
 
-.stock-diary h1 {
-    color: #ffd700 !important;  /* 金色 - 大标题 */
+/* === 阅读模式 / 实时预览 === */
+.stock-diary h1,
+.stock-diary .cm-header-1 {
+    color: #ffd700 !important;
     border-bottom: 2px solid rgba(255, 215, 0, 0.3);
     padding-bottom: 8px;
 }
 
-.stock-diary h3 {
-    color: #ff6b6b !important;  /* 珊瑚红 - 日期 */
+.stock-diary h3,
+.stock-diary .cm-header-3 {
+    color: #ff6b6b !important;
     font-size: 1.1em;
     border-left: 3px solid #ff6b6b;
     padding-left: 10px;
@@ -20,27 +23,38 @@
     background: rgba(255, 215, 0, 0.05);
 }
 
-.stock-diary p {
-    color: #c8d6e5 !important;  /* 浅灰蓝 - 正文 */
+.stock-diary p,
+.stock-diary .cm-line {
+    color: #c8d6e5 !important;
     line-height: 1.7;
 }
 
+/* === 表格 === */
 .stock-diary table {
     border: 1px solid rgba(255, 107, 107, 0.3);
 }
-
 .stock-diary th {
     background: rgba(255, 107, 107, 0.15);
     color: #ff6b6b !important;
 }
 
+/* === 区分日期和正文（日记条目专用）=== */
+.stock-diary h3 + p,
+.stock-diary h3 + .cm-line {
+    color: #e8e8e8 !important;
+    font-weight: 400;
+}
+
 /* ===== 浅色模式适配 ===== */
-.theme-light .stock-diary h1 {
+.theme-light .stock-diary h1,
+.theme-light .stock-diary .cm-header-1 {
     color: #b8860b !important;
 }
-.theme-light .stock-diary h3 {
+.theme-light .stock-diary h3,
+.theme-light .stock-diary .cm-header-3 {
     color: #c0392b !important;
 }
-.theme-light .stock-diary p {
+.theme-light .stock-diary p,
+.theme-light .stock-diary .cm-line {
     color: #2c3e50 !important;
 }
