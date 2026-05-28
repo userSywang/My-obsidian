@@ -1,60 +1,57 @@
-/* ===== 股票日记专属配色 ===== */
-/* 在日记 frontmatter 中添加 cssclass: stock-diary 即可生效 */
+/* ===== 股票日记专属配色（按文件路径匹配）===== */
 
-/* === 阅读模式 / 实时预览 === */
-.stock-diary h1,
-.stock-diary .cm-header-1 {
+/* === 大标题 - 金色 === */
+div[data-path="随记/股票日记.md"] .markdown-preview-view h1,
+div[data-path="随记/股票日记.md"] .cm-header-1 {
     color: #ffd700 !important;
     border-bottom: 2px solid rgba(255, 215, 0, 0.3);
     padding-bottom: 8px;
 }
 
-.stock-diary h3,
-.stock-diary .cm-header-3 {
+/* === 日期 (### 标题) - 珊瑚红 === */
+div[data-path="随记/股票日记.md"] .markdown-preview-view h3,
+div[data-path="随记/股票日记.md"] .cm-header-3 {
     color: #ff6b6b !important;
-    font-size: 1.1em;
     border-left: 3px solid #ff6b6b;
     padding-left: 10px;
     margin-top: 1.5em;
 }
 
-.stock-diary blockquote {
-    border-left-color: #ffd700 !important;
-    background: rgba(255, 215, 0, 0.05);
-}
-
-.stock-diary p,
-.stock-diary .cm-line {
+/* === 正文 - 浅灰蓝 === */
+div[data-path="随记/股票日记.md"] .markdown-preview-view p,
+div[data-path="随记/股票日记.md"] .cm-line {
     color: #c8d6e5 !important;
     line-height: 1.7;
 }
 
+/* === 引用块 === */
+div[data-path="随记/股票日记.md"] .markdown-preview-view blockquote,
+div[data-path="随记/股票日记.md"] .cm-blockquote-border {
+    border-left-color: #ffd700 !important;
+}
+
 /* === 表格 === */
-.stock-diary table {
+div[data-path="随记/股票日记.md"] table {
     border: 1px solid rgba(255, 107, 107, 0.3);
 }
-.stock-diary th {
+div[data-path="随记/股票日记.md"] th {
     background: rgba(255, 107, 107, 0.15);
     color: #ff6b6b !important;
 }
-
-/* === 区分日期和正文（日记条目专用）=== */
-.stock-diary h3 + p,
-.stock-diary h3 + .cm-line {
-    color: #e8e8e8 !important;
-    font-weight: 400;
+div[data-path="随记/股票日记.md"] td {
+    border-color: rgba(255, 107, 107, 0.15);
 }
 
 /* ===== 浅色模式适配 ===== */
-.theme-light .stock-diary h1,
-.theme-light .stock-diary .cm-header-1 {
+.theme-light div[data-path="随记/股票日记.md"] .cm-header-1,
+.theme-light div[data-path="随记/股票日记.md"] .markdown-preview-view h1 {
     color: #b8860b !important;
 }
-.theme-light .stock-diary h3,
-.theme-light .stock-diary .cm-header-3 {
+.theme-light div[data-path="随记/股票日记.md"] .cm-header-3,
+.theme-light div[data-path="随记/股票日记.md"] .markdown-preview-view h3 {
     color: #c0392b !important;
 }
-.theme-light .stock-diary p,
-.theme-light .stock-diary .cm-line {
+.theme-light div[data-path="随记/股票日记.md"] .cm-line,
+.theme-light div[data-path="随记/股票日记.md"] .markdown-preview-view p {
     color: #2c3e50 !important;
 }
