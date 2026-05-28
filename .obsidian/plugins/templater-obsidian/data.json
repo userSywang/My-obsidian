@@ -1,0 +1,19 @@
+{
+  "templates_folder": "股票学习/模板",
+  "automatic_folders": false,
+  "automatic_folders_prevent_folders": [],
+  "automatic_folders_use_regexp": false,
+  "automatic_folders_default_value": false,
+  "enable_file_templates": false,
+  "file_templates": [],
+  "enable_folder_templates": true,
+  "folder_templates": [],
+  "syntax_highlight": true,
+  "syntax_highlight_mobile": false,
+  "enabled_templates_hotkeys": [],
+  "startup_templates": [],
+  "enable_system_commands": true,
+  "shell_commands": [],
+  "user_scripts_folder": "",
+  "dynamic_tp_folder_templates": false
+}
