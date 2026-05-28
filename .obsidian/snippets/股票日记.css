@@ -1,57 +1,25 @@
-/* ===== 股票日记专属配色（按文件路径匹配）===== */
-
-/* === 大标题 - 金色 === */
-div[data-path="随记/股票日记.md"] .markdown-preview-view h1,
-div[data-path="随记/股票日记.md"] .cm-header-1 {
+/* 股票日记 - 读模式 + 实时预览 */
+.workspace-leaf[data-path*="股票日记"] .cm-header-1,
+.workspace-leaf[data-path*="股票日记"] h1 {
     color: #ffd700 !important;
     border-bottom: 2px solid rgba(255, 215, 0, 0.3);
     padding-bottom: 8px;
 }
 
-/* === 日期 (### 标题) - 珊瑚红 === */
-div[data-path="随记/股票日记.md"] .markdown-preview-view h3,
-div[data-path="随记/股票日记.md"] .cm-header-3 {
+.workspace-leaf[data-path*="股票日记"] .cm-header-3,
+.workspace-leaf[data-path*="股票日记"] h3 {
     color: #ff6b6b !important;
     border-left: 3px solid #ff6b6b;
     padding-left: 10px;
     margin-top: 1.5em;
 }
 
-/* === 正文 - 浅灰蓝 === */
-div[data-path="随记/股票日记.md"] .markdown-preview-view p,
-div[data-path="随记/股票日记.md"] .cm-line {
+.workspace-leaf[data-path*="股票日记"] .cm-line,
+.workspace-leaf[data-path*="股票日记"] p {
     color: #c8d6e5 !important;
     line-height: 1.7;
 }
 
-/* === 引用块 === */
-div[data-path="随记/股票日记.md"] .markdown-preview-view blockquote,
-div[data-path="随记/股票日记.md"] .cm-blockquote-border {
-    border-left-color: #ffd700 !important;
-}
-
-/* === 表格 === */
-div[data-path="随记/股票日记.md"] table {
-    border: 1px solid rgba(255, 107, 107, 0.3);
-}
-div[data-path="随记/股票日记.md"] th {
-    background: rgba(255, 107, 107, 0.15);
+.workspace-leaf[data-path*="股票日记"] table th {
     color: #ff6b6b !important;
-}
-div[data-path="随记/股票日记.md"] td {
-    border-color: rgba(255, 107, 107, 0.15);
-}
-
-/* ===== 浅色模式适配 ===== */
-.theme-light div[data-path="随记/股票日记.md"] .cm-header-1,
-.theme-light div[data-path="随记/股票日记.md"] .markdown-preview-view h1 {
-    color: #b8860b !important;
-}
-.theme-light div[data-path="随记/股票日记.md"] .cm-header-3,
-.theme-light div[data-path="随记/股票日记.md"] .markdown-preview-view h3 {
-    color: #c0392b !important;
-}
-.theme-light div[data-path="随记/股票日记.md"] .cm-line,
-.theme-light div[data-path="随记/股票日记.md"] .markdown-preview-view p {
-    color: #2c3e50 !important;
 }
